@@ -3,10 +3,7 @@ name: Chapter 2 Checks
 on:
   push:
     branches: # <1>
-      - main
-defaults: # DO NOT INCLUDE
-  run:
-    working-directory: ./ch2
+      - master
 jobs:
   build:
     name: Build App
@@ -27,10 +24,10 @@ jobs:
     - name: Copy Files #
       run: |
            mkdir  artifacts
-           cp api artifacts/.
+           cp go-skeleton artifacts/.
 
     - name: Archive #
       uses: actions/upload-artifact@v2
       with:
-          name: api #
+          name: go-skeleton
           path: artifacts
