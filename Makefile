@@ -9,8 +9,11 @@ test:
 cover:
 	go test -coverprofile coverage.out
 
-report:
+report: cover
 	go tool cover -html=coverage.out -o cover.html
 
 check-format:
 	test -z $$(go fmt ./...)
+
+check: check-format
+	go vet ./...

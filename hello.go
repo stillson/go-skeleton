@@ -20,5 +20,4 @@ func main() {
 	j, ok := <-ch
 
 	print(j, ok)
-
 }
