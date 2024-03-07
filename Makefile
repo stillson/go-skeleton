@@ -19,7 +19,11 @@ check: check-format static-check
 	go vet ./...
 
 #setup: install-go init-go install-lint
-setup: install-lint
+setup: install-lint copy-hooks
+
+copy-hooks:
+	chmod +x scripts/hooks/*
+	cp -r scripts/hooks .git/.
 
 install-lint:
 	sudo curl -sSfL \
@@ -28,3 +32,6 @@ install-lint:
 
 static-check:
 	golangci-lint run
+
+clean:
+	go clean

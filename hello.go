@@ -2,7 +2,11 @@ package main
 
 import "fmt"
 
-// This is a relatively usseless function!
+// This is a relatively usseless function
+// tada
+/**
+ * Is thos weerd?
+ */
 
 func intIdent(input int) int {
 	return input
