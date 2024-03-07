@@ -1,23 +1,32 @@
 package main
 
+import "fmt"
+
+// This is a relatively usseless function!
+
+func intIdent(input int) int {
+	return input
+}
+
 func main() {
 	ch := make(chan int)
 
 	go func() {
-		ch <- 7
+		ch <- intIdent(7)
 	}()
 
 	i, ok := <-ch
 
-	print(i, ok)
+	fmt.Printf("I: %d %v\n", i, ok)
 
 	go func() {
-		ch <- 11
+		ch <- intIdent(11)
 	}()
 
 	close(ch)
 
 	j, ok := <-ch
 
-	print(j, ok)
+	fmt.Printf("J: %d %v\n", j, ok)
+
 }

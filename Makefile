@@ -1,7 +1,7 @@
 
 
 build:
-	go build
+	go build ./...
 
 test:
 	go test
@@ -24,7 +24,7 @@ setup: install-lint
 install-lint:
 	sudo curl -sSfL \
 	https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh\
-	| sh -s -- -b $$(go env GOPATH)/bin v1.41.1
+	| sh -s -- -b $$(go env GOPATH)/bin latest
 
 static-check:
 	golangci-lint run
